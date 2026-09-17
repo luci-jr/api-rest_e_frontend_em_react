@@ -4,18 +4,25 @@ services:
     environment:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=root
-      - POSTGRES_DB=root      
+      - POSTGRES_DB=celebridades
     ports:
       - "5432:5432"
     volumes:
       - ./migration/docker-database-initial.sql:/docker-entrypoint-initdb.d/docker-database-initial.sql   
 
   pgadmin-compose:
-    image: dpage/pgadmin4:2026-06-18-3 # versão do pgadmin atualmente
+    image: dpage/pgadmin4:9.18 # Versão fixa do pgAdmin 4 (evita breaking changes)
+    restart: unless-stopped
     environment:
       PGADMIN_DEFAULT_EMAIL: "lucivaldojr25@gmail.com"
       PGADMIN_DEFAULT_PASSWORD: "luci1987"
+      PGADMIN_LISTEN_PORT: 80
     ports:
       - "54321:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
     depends_on:
       - postgres
+
+volumes:
+  pgadmin_data:
