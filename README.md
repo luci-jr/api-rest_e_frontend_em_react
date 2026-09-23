@@ -20,6 +20,26 @@ O projeto é composto por:
 
 ---
 
+## 📸 Demonstração Visual do Projeto
+
+### 1. Interface Front-end React (Tema Retro Synthwave 80s/90s)
+> SPA dinâmica consumindo a API Go em tempo real com cards estilizados, topbar de status e logos giratórios:
+![Front-end React Retro Arcade](./assets/react-app-retro.png)
+
+<br>
+
+### 2. Dashboard do pgAdmin 4 & Conexão PostgreSQL
+> Interface gráfica de administração do banco relacional com métricas de transações e sessões ativas do driver GORM:
+![Dashboard do pgAdmin 4](./assets/pgadmin-dashboard.png)
+
+<br>
+
+### 3. Terminal com Containers Docker & API Go em Execução
+> Visualização do `docker compose ps` (PostgreSQL + pgAdmin) e chamada `curl` confirmando cabeçalhos de CORS e JSON:
+![Terminal com Containers e API Go](./assets/terminal-containers.png)
+
+---
+
 ## ⚡ Guia Rápido de Execução (Quick Start)
 
 Para subir a aplicação completa do zero na tua máquina em **3 passos**:

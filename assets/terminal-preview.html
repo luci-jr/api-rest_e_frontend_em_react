@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Terminal - Containers em Execução</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 30px;
+      background: #080811;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Fira Code', monospace;
+    }
+    .terminal-window {
+      width: 1000px;
+      background: #0f111a;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 243, 255, 0.2);
+      border: 1px solid rgba(0, 243, 255, 0.3);
+    }
+    .terminal-header {
+      background: #1a1c29;
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    .dot-red { background: #ff5f56; }
+    .dot-yellow { background: #ffbd2e; }
+    .dot-green { background: #27c93f; }
+    .terminal-title {
+      flex: 1;
+      text-align: center;
+      color: #9aa5b8;
+      font-size: 13px;
+      font-weight: 500;
+      margin-right: 48px;
+    }
+    .terminal-body {
+      padding: 24px;
+      color: #e0e6ed;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .prompt {
+      color: #00f3ff;
+      font-weight: bold;
+    }
+    .dir {
+      color: #ff007f;
+      font-weight: 500;
+    }
+    .cmd {
+      color: #ffffff;
+      font-weight: 600;
+    }
+    .output-table {
+      color: #a0aec0;
+      margin: 8px 0 20px 0;
+      white-space: pre;
+      font-size: 13px;
+    }
+    .highlight-status {
+      color: #05ffa1;
+      font-weight: 600;
+    }
+    .highlight-service {
+      color: #ffb703;
+    }
+    .highlight-ports {
+      color: #00f3ff;
+    }
+    .success-badge {
+      display: inline-block;
+      padding: 2px 8px;
+      background: rgba(5, 255, 161, 0.15);
+      border: 1px solid #05ffa1;
+      color: #05ffa1;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="terminal-window">
+    <div class="terminal-header">
+      <span class="dot dot-red"></span>
+      <span class="dot dot-yellow"></span>
+      <span class="dot dot-green"></span>
+      <span class="terminal-title">lucivaldo@nexus: ~/Go4 - Desenvolvendo uma API Rest/celebridades (bash)</span>
+    </div>
+    <div class="terminal-body">
+      <div><span class="prompt">➜</span> <span class="dir">celebridades</span> <span class="prompt">git:(main)</span> <span class="cmd">docker compose ps</span></div>
+      <div class="output-table">NAME                             IMAGE                    COMMAND                  SERVICE           STATUS          PORTS
+<span class="highlight-service">celebridades-pgadmin-compose-1</span>   dpage/pgadmin4:9.18      "/entrypoint.sh"         pgadmin-compose   <span class="highlight-status">Up (healthy)</span>    <span class="highlight-ports">0.0.0.0:54321->80/tcp</span>
+<span class="highlight-service">celebridades-postgres-1</span>          postgres:18.4-bookworm   "docker-entrypoint.s…"   postgres          <span class="highlight-status">Up (healthy)</span>    <span class="highlight-ports">0.0.0.0:5432->5432/tcp</span></div>
+
+      <div><span class="prompt">➜</span> <span class="dir">celebridades</span> <span class="prompt">git:(main)</span> <span class="cmd">go run main.go</span></div>
+      <div class="output-table">Conexao com banco de dados realizada com sucesso!
+Iniciando servidor Rest em Go na porta :8000... <span class="success-badge">ONLINE</span></div>
+
+      <div><span class="prompt">➜</span> <span class="dir">celebridades</span> <span class="prompt">git:(main)</span> <span class="cmd">curl -i http://localhost:8000/api/personalidades</span></div>
+      <div class="output-table">HTTP/1.1 200 OK
+<span class="highlight-ports">Content-Type:</span> application/json
+<span class="highlight-ports">Access-Control-Allow-Origin:</span> *
+<span class="highlight-ports">Date:</span> Tue, 22 Sep 2026 21:40:00 GMT
+
+[{"id":1,"nome":"João Paulo II","historia":"O Papa João Paulo II..."},{"id":2,"nome":"Almirante Barroso","historia":"Francisco Manoel Barroso da Silva..."}]</div>
+    </div>
+  </div>
+</body>
+</html>
