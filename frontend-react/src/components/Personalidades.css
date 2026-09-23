@@ -1,0 +1,234 @@
+/* Container principal dos componentes retro */
+.RetroContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 24px 80px 24px;
+}
+
+/* Barra de comando / console retro */
+.RetroConsoleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(14, 13, 26, 0.9);
+  border: 1px solid var(--neon-purple);
+  box-shadow: 0 0 15px rgba(157, 78, 221, 0.25);
+  padding: 12px 20px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  font-family: var(--font-retro);
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.ConsoleTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--neon-cyan);
+}
+
+.PromptSymbol {
+  color: var(--neon-pink);
+  font-weight: bold;
+}
+
+.ConsoleCommand {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.ConsoleCounter {
+  color: var(--neon-amber);
+}
+
+.CounterNumber {
+  color: var(--neon-green);
+  text-shadow: 0 0 8px var(--neon-green);
+}
+
+/* Telas de estado: loading e erro */
+.RetroLoading {
+  text-align: center;
+  padding: 60px 20px;
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 12px var(--neon-cyan);
+  letter-spacing: 2px;
+}
+
+.BlinkingCursor {
+  animation: retro-blink 0.8s infinite;
+  color: var(--neon-pink);
+}
+
+.RetroError {
+  background: rgba(255, 0, 80, 0.12);
+  border: 2px solid var(--neon-pink);
+  box-shadow: 0 0 25px rgba(255, 0, 127, 0.4);
+  padding: 24px;
+  text-align: center;
+  margin: 30px auto;
+  max-width: 600px;
+  border-radius: 4px;
+}
+
+.ErrorTitle {
+  font-family: var(--font-pixel);
+  font-size: 14px;
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink);
+  margin-bottom: 12px;
+}
+
+.RetroError p {
+  color: #fff;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.ErrorHint {
+  font-family: var(--font-retro);
+  font-size: 18px;
+  color: var(--neon-amber);
+  letter-spacing: 1px;
+}
+
+/* Grid de cards arcade retro */
+.GridPersonalidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 28px;
+}
+
+/* Estilo do Card Individual */
+.CardPersonalidades {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--card-border);
+  border-radius: 4px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Cantoneira decorativa arcade no canto superior */
+.CardPersonalidades::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 20px 0;
+  border-color: transparent var(--neon-cyan) transparent transparent;
+  transition: border-color 0.3s ease;
+}
+
+.CardPersonalidades:hover {
+  transform: translateY(-6px);
+  border-color: var(--neon-pink);
+  box-shadow: 
+    0 12px 35px rgba(255, 0, 127, 0.35),
+    inset 0 0 15px rgba(255, 0, 127, 0.08);
+}
+
+.CardPersonalidades:hover::before {
+  border-color: transparent var(--neon-pink) transparent transparent;
+}
+
+/* Header do Card */
+.CardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.CardIdTag {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--neon-green);
+  background: rgba(5, 255, 161, 0.08);
+  border: 1px solid var(--neon-green);
+  padding: 4px 8px;
+  letter-spacing: 1px;
+  box-shadow: 0 0 8px rgba(5, 255, 161, 0.25);
+}
+
+.CardLocationTag {
+  font-family: var(--font-retro);
+  font-size: 16px;
+  color: var(--neon-amber);
+  letter-spacing: 2px;
+}
+
+/* Corpo do Card */
+.CardBody {
+  flex-grow: 1;
+}
+
+.CardTitle {
+  font-family: var(--font-body);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+  text-shadow: 0 0 12px rgba(0, 243, 255, 0.4);
+  letter-spacing: 0.5px;
+}
+
+.CardDivider {
+  height: 2px;
+  background: linear-gradient(90deg, var(--neon-cyan), transparent);
+  margin-bottom: 16px;
+}
+
+.CardDescription {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  text-align: justify;
+}
+
+/* Rodapé do Card */
+.CardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.CardTag {
+  font-family: var(--font-retro);
+  font-size: 18px;
+  color: var(--neon-purple);
+  letter-spacing: 1px;
+}
+
+.CardProtocol {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 6px var(--neon-cyan);
+}
+
+@media (max-width: 600px) {
+  .GridPersonalidades {
+    grid-template-columns: 1fr;
+  }
+  .RetroConsoleHeader {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 16px;
+  }
+}
